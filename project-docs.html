@@ -1,0 +1,138 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>项目文档 · thtrz Personal Space</title><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="assets/documents.css"><script src="assets/documents.js" defer></script></head><body><header><a href="index.html">← 返回个人网站</a><span>TH​TRZ / PROJECT DOCUMENTATION</span></header><main><p class="eyebrow">作业 04 / 文档阅读</p><h1>从需求，到实现。</h1><p class="intro">依次打开以下三份文档，截图时保留文件名、标题和主要内容。原始 Markdown 文件也包含在项目根目录中。</p><nav aria-label="选择文档"><button type="button" data-doc="0" aria-pressed="true">PRD.md</button><button type="button" data-doc="1" aria-pressed="false">TECH_DESIGN.md</button><button type="button" data-doc="2" aria-pressed="false">AGENTS.md</button></nav><section class="doc" id="doc-0"><p class="file-label">项目真实文件 / PRD.md</p><h2>个人展示网站｜产品需求文档 PRD</h2>
+<p>版本：1.0.0  日期：2026-10-27  项目：thtrz / Personal Space</p>
+<h3>1. 产品目标</h3>
+<p>创建一个可通过在线网址访问的个人展示网站，整理个人介绍、学习方向、项目与学习笔记。首版以“AI 协作开发学习者”的真实实践为基础，不编造学历、工作经历、技能等级或联系方式。</p>
+<h3>2. 目标访客与场景</h3>
+<p>- 作业评阅者：查看个人网页、功能实现和项目文档。</p>
+<p>- 对作品感兴趣的人：了解项目，访问官网或代码仓库。</p>
+<p>- 网站维护者：修改资料、增加项目和笔记。</p>
+<h3>3. MVP 核心功能</h3>
+<p>1. 首页：昵称 thtrz、简短介绍、项目入口与关于我入口。</p>
+<p>2. 个人介绍：介绍学习方式和实践方向，不虚构经历时间线。</p>
+<p>3. 技能展示：按“正在学习、项目实践、持续练习”描述 AI 协作、前端与扩展、GitHub 部署，不伪造熟练度百分比。</p>
+<p>4. 项目展示：ImageGrab 与本站，包含描述、技术标签、项目说明弹窗和真实链接。</p>
+<p>5. 博客：三篇 Markdown 学习笔记；标题/摘要/标签搜索；正文阅读窗口、文章目录与代码块轻量着色。</p>
+<p>6. 联系：真实 GitHub 链接和地址复制；没有真实邮箱前不显示邮件表单或虚假发送成功提示。</p>
+<p>7. 全局：吸顶导航、手机菜单、锚点跳转、返回顶部、页脚。</p>
+<p>8. 作业文档：项目根目录保留 PRD.md、TECH_DESIGN.md、AGENTS.md，另提供 project-docs.html 方便阅读与截图。</p>
+<h3>4. 设计要求</h3>
+<p>- 深色背景 #0B1018、浅色正文 #EDF0F4、浅绿强调色 #B8F5B0。</p>
+<p>- 星空 Canvas 使用少量闪烁星点，CSS 绘制创作星球，页面不依赖外部照片。</p>
+<p>- 现代简洁、充足留白、统一圆角与边框，不使用虚构统计数据。</p>
+<p>- 小于 768 px 为单列，平板适当两列，桌面为两列或三列；320 px 起应可读，无横向溢出。</p>
+<p>- 菜单和弹窗可用键盘操作；图片有替代说明；遵循 reduced-motion，减少持续动画。</p>
+<h3>5. 内容与数据</h3>
+<p>- 展示昵称：thtrz，来自用户提供的 GitHub 仓库。</p>
+<p>- GitHub： https://github.com/thtrz</p>
+<p>- ImageGrab： https://thtrz.github.io/imagegrab/</p>
+<p>- 本站仓库： https://github.com/thtrz/tt</p>
+<p>- 个人介绍为可修改的学习者文案，发布前由本人核对。</p>
+<p>- 博客为本次项目相关学习笔记；没有声称未实测功能已经完成。</p>
+<h3>6. 更新博客</h3>
+<p>Markdown 原文存放于 content/posts。初始三篇已内置到 assets/posts.js，因此本地双击和分支发布均可直接阅读。</p>
+<p>新增 Markdown 后，运行 node tools/build-blog.mjs 会自动重新收集文章并生成列表，无需手动修改首页。若启用附带 GitHub Actions 发布工作流，每次推送会自动生成最新博客并部署；普通分支发布不会自行执行 Node 脚本。</p>
+<h3>7. 验收标准</h3>
+<p>- 首页、关于、技能、项目、博客、联系模块完整。</p>
+<p>- ImageGrab 官网及仓库链接与现有项目对应。</p>
+<p>- 博客可搜索，正文可打开，目录能跳转，关闭后焦点返回。</p>
+<p>- 星空在 reduced-motion 下为静态，切换到后台时暂停动画。</p>
+<p>- 网站可由 GitHub Pages 发布，不需要后端或 AI API。</p>
+<p>- 文档内容与实现一致，未执行的测试在验证说明中明确记录。</p>
+<h3>8. 后续版本</h3>
+<p>可以添加本人确认的教育/经历、简历、头像和邮箱；如需要真实联系表单或后台管理，另行引入后端、身份验证与内容存储。首版没有后台登录、数据库或服务端邮件发送。</p></section>
+<section class="doc" id="doc-1" hidden><p class="file-label">项目真实文件 / TECH_DESIGN.md</p><h2>个人展示网站｜技术设计文档</h2>
+<p>版本：1.0.0  日期：2026-10-27</p>
+<h3>1. 技术选型</h3>
+<p>- 前端：HTML5 + CSS3 + 原生 JavaScript。</p>
+<p>- 背景：Canvas 2D 少量星点；主要星球与项目示意图使用 CSS/SVG。</p>
+<p>- 数据：Markdown 文章源文件 + 生成的 assets/posts.js，不存私人数据。</p>
+<p>- 后端与数据库：首版不需要。</p>
+<p>- 部署：GitHub Pages；普通分支发布可以直接使用，自动博客发布可以改用附带 Actions 工作流。</p>
+<p>选择纯静态实现是为了延续用户已经完成的 GitHub 网页上传流程。教程中的 React / TypeScript 是示例技术方案；当前需求不依赖组件框架，不需要用户安装依赖或购买 AI 额度。</p>
+<h3>2. 目录结构</h3>
+<pre><code>
+PersonalSite/
+
+  index.html              公开首页
+
+  project-docs.html       文档阅读与截图页
+
+  PRD.md                  产品需求
+
+  TECH_DESIGN.md          技术设计
+
+  AGENTS.md               AI 项目开发约定
+
+  assets/
+
+    style.css             响应式样式
+
+    app.js                星空、菜单、项目、博客与复制
+
+    posts.js              预生成的文章列表与正文
+
+    favicon.svg           本地图标
+
+  content/posts/*.md      博客原文
+
+  tools/build-blog.mjs    零依赖文章构建脚本
+
+  automation/pages.yml（启用时复制为 .github/workflows/pages.yml）  可选自动构建与发布
+
+  README-先看这里.md       上传、部署与截图说明
+
+</code></pre>
+<h3>3. 数据模型</h3>
+<p>Post：id、title、date（YYYY-MM-DD）、summary、tags（字符串数组）、body（Markdown）。</p>
+<p>文章文件顶部使用一段 JSON 作为元信息，两端由 --- 分隔。构建脚本读取 content/posts 的全部 .md 文件，校验字段、按日期排序后写入 assets/posts.js。初始文章已预生成，file:// 下也能运行。</p>
+<p>个人资料和项目卡片直接维护于 index.html，项目详细说明位于 app.js 的 projectNotes。无需编辑数据库。</p>
+<h3>4. 页面交互</h3>
+<p>- 导航通过锚点跳转；IntersectionObserver 更新当前区块状态。</p>
+<p>- 菜单以 aria-expanded 维护展开状态，点击链接或 Escape 可收起。</p>
+<p>- 博客列表以标题、摘要、标签筛选，不发起网络搜索请求。</p>
+<p>- 原生 dialog 提供阅读与项目详情；关闭时恢复原焦点。</p>
+<p>- Markdown 支持标题、段落、无序/有序列表、引用、粗体、行内代码、围栏代码块和 HTTP/HTTPS 链接。不实现完整 CommonMark 规范。</p>
+<p>- 使用 DOM textContent / 文本节点渲染文章，不执行原始 HTML。正文不支持任意嵌入脚本。</p>
+<p>- 代码块仅轻量着色，不等同于完整语法解析器。</p>
+<h3>5. 性能与可访问性</h3>
+<p>- 桌面 76 个星点，手机 38 个，设备像素比上限 1.5。</p>
+<p>- 约 22 帧/秒更新星空绘制；不对手机实际帧率作未经测试的承诺。</p>
+<p>- document.hidden 时暂停动画；reduced-motion 下仅绘制静态星空。</p>
+<p>- 正文最大宽度 1160 px，手机单列；无外部图片、字体 CDN 或前端包下载。</p>
+<p>- 保留键盘焦点边框、跳到主要内容入口、搜索名称与弹窗关闭按钮。</p>
+<h3>6. 部署方案</h3>
+<p>方案 A：Settings → Pages → Deploy from a branch → main → / (root) → Save。适合本次上传后直接交作业。页面入口在根目录，不能选 /docs。</p>
+<p>方案 B：上传隐藏的 automation/pages.yml（启用时复制为 .github/workflows/pages.yml），并把 Pages 的 Source 改为 GitHub Actions。工作流调用 Node 构建文章，将允许列表内的公开页面与资源上传为站点，再部署。新增或修改 Markdown 后自动触发。该方案不执行 npm install，无第三方应用依赖。</p>
+<p>预计站点为 https://thtrz.github.io/tt/，以 Pages 实际提供并且访问成功的网址为准。</p>
+<h3>7. 安全与边界</h3>
+<p>- 不存账号密码、不调用 AI API、不采集统计或登录信息。</p>
+<p>- 未提供真实邮箱，不设置会误导用户的联系表单。</p>
+<p>- 外链使用 noopener noreferrer。</p>
+<p>- 项目原始 .md 文件用于公开作业，不包含凭据或私人资料。</p>
+<p>- 个人简介在发布前由用户核对；修改时同步更新 PRD。</p>
+<p>- 项目示意图标注为示意，不充当真实功能测试截图。</p></section>
+<section class="doc" id="doc-2" hidden><p class="file-label">项目真实文件 / AGENTS.md</p><h2>AGENTS.md</h2>
+<h3>项目概述</h3>
+<p>这是 thtrz 的个人展示网站，包含介绍、学习方向、项目和博客，用于 GitHub Pages 发布与课程作业。</p>
+<h3>运行方式</h3>
+<p>- 直接在浏览器打开 index.html 可预览初始站点。</p>
+<p>- 博客原文在 content/posts，已有 posts.js 离线数据。</p>
+<p>- 修改文章后，如有 Node.js，运行 node tools/build-blog.mjs 更新文章列表。</p>
+<p>- GitHub Pages 普通发布使用 main 和 / (root)。可选 Actions 自动构建与部署方式见 README。</p>
+<h3>开发约定</h3>
+<p>- 使用原生 HTML、CSS、JavaScript，无前端框架和重型 UI 库。</p>
+<p>- 资源路径使用相对路径，兼容 /tt/ 项目子路径和 file:// 本地打开。</p>
+<p>- 主要样式变量统一维护在 assets/style.css 的 :root。</p>
+<p>- 保持中文文案，功能必须有可见结果和错误反馈。</p>
+<p>- 不编造作者的真实姓名、学历、经历、熟练度、联系方式或项目实测结果。</p>
+<p>- 只有提供真实后端之后，才能增加带“已发送”结果的联系表单。</p>
+<p>- Markdown 只按文本节点渲染，不注入不可信 HTML。</p>
+<p>- 无关修改不要改变 ImageGrab 项目的原始代码和部署。</p>
+<h3>验证要求</h3>
+<p>- 检查 JavaScript 语法、页面资源和锚点链接。</p>
+<p>- 修改博客解析时，用围栏代码、标题、列表和恶意 HTML 样例检查文本处理。</p>
+<p>- 有浏览器工具时检查 320/375/768/1440 px 布局、菜单、搜索、阅读窗口、复制和星空降级。</p>
+<p>- 修改博客后检查构建出的条目数、排序与文章内容。</p>
+<p>- 无法执行的浏览器实测必须在验证说明中写明，不得用“已通过”代替。</p>
+<h3>维护文档</h3>
+<p>涉及功能范围或部署方式变化时，同步修改 PRD.md、TECH_DESIGN.md 和 README。project-docs.html 是由原始文档生成的截图阅读页，内容变化后需要同步更新。</p></section></main><footer>这些页面展示项目文档正文；正式文件位于同名 Markdown 文件中。</footer></body></html>
